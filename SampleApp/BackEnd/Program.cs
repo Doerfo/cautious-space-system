@@ -46,11 +46,14 @@ app.MapGet("/weatherforecast", () =>
 })
 .WithName("GetWeatherForecast");
 
+// GET /time endpoint - Returns the current server time in JSON format
+// Response format: { "currentTime": "ISO 8601 datetime string" }
 app.MapGet("/time", () =>
 {
+    // Return current server time as an anonymous object with currentTime property
     return new { currentTime = DateTime.Now };
 })
-.WithName("GetCurrentTime");
+.WithName("GetCurrentTime"); // Named endpoint for OpenAPI documentation
 
 app.Run();
 
